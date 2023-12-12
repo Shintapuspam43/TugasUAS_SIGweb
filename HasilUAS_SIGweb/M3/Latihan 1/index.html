@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <title>Latihan 1_Hitung Faktorial M3</title>
+<body>
+    <h2>Hitung faktorial dari angka berikut:</h2>
+    <h4>Masukkan sembarang angka</h4>
+    <form>
+        <input id="input">
+        <button id="button">click</button>
+        <p id="demo"></p>
+    </form>
+    <h5 style="color:orange;" align="left">Dibuat Oleh: <br> Shinta Puspa Megawanti <br> 20/456748/TK/50572</h5>
+    <script>
+        var input = document.getElementById("input")
+        var button = document.getElementById("button")
+        var demo = document.getElementById("demo")
+        button.addEventListener("click", function(e){
+            e.preventDefault()
+            var valInp = input.value;
+            var hasil = 1;
+            for(var i=valInp; i>0; i--){
+                hasil *=i;
+
+            }
+        demo.innerHTML = `Angka faktorial dari ${valInp} adalah : ${hasil}`;
+        })
+    </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://cloudconvert.com/
+HostUrl=https://eu-central.storage.cloudconvert.com/tasks/5609cd34-2436-4279-bf4b-140579e70dd2/palembang.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231212%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231212T090314Z&X-Amz-Expires=86400&X-Amz-Signature=86e558b150dd5500f756cf9837ca1700a075470a9a7da957f47e637832807000&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3D%22palembang.jpg%22&response-content-type=image%2Fjpeg&x-id=GetObject

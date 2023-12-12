@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Lokasi Atraksi Wisata Bojonegoro</title>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.1/dist/leaflet.css"
+   integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+   crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
+   integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s="
+   crossorigin=""></script>
+<!-- Membuat judul -->
+<div class="container-fluid p-3">
+    <h2 class="mb-3">                 
+        <center><span class="text-primary">Titik Lokasi Atraksi Wisata</span></center>
+</div>
+<!-- Memanggil bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+    <script src="./bundle.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="./Leaflet.GraphicScale.min.css">
+
+    <script src="./Leaflet.GraphicScale.min.js"></script>
+    <style>
+	#map {
+		height: calc(100vh - 60px);
+	}
+	</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+     
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <button 
+	    class="btn btn-outline-success my-2 my-sm-0" 
+		onclick="cari()"
+		>
+		   Lokasi saya
+	  </button>
+    </form>
+  </div>
+</nav>
+ <style>
+    html, body, section
+    {
+        position: relative;
+        height: 100%;
+        background-color: #2e2d2d;
+    }
+
+    html
+    {
+        scroll-behavior: smooth;
+    }
+
+    #map {
+    width: 1500px;
+    height:1500px;
+    } 
+ </style>
+
+</head>
+<body>
+    <center>
+        <div id="map"></div>
+    </center>
+    <!--Didapatkan dari notepad-->
+        <script src="bojonegoro.js"></script>
+    <script>
+        var map = L.map('map',{
+        center: [-7.247847465307407, 111.84115984897701],
+        zoom: 12
+        });
+
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        
+        
+        L.marker([-7.367381, 111.868997])
+            .bindPopup('<center><img src="https://lh5.googleusercontent.com/p/AF1QipOZoUhqSmaW3lIDAEbXP7hfxDorAASAMJPIEzkv=w426-h240-k-no" width="250px" height="150px" title="Waduk Pacal" alt="Waduk Pacal"></center><h2>Waduk Pacal</h2>')
+            .addTo(map)
+        L.marker([-7.355463082689027, 111.85030427077753])
+            .bindPopup('<center><img src="https://lh5.googleusercontent.com/p/AF1QipMr5S06h-SRn8I0b0lYh59VmzXFBWr6e2RmEnGF=w408-h544-k-no" width="250px" height="200px" title="Air Terjun Kedungmaor" alt="Air Terjun Kedungmaor"></center><h2>Air Terjun Kedungmaor</h2>')
+            .addTo(map)
+        L.marker([-7.120816656937918, 111.82741660012292])
+            .bindPopup('<center><img src="https://lh5.googleusercontent.com/p/AF1QipPKI_erGLjYj_cnq3oe1JD6lcKNkxCcMrQqeTTG=w408-h408-k-no" width="250px" height="150px title="Agrowisata Blimbing" alt="Agrowisata Blimbing"></center><h2>Agrowisata Blimbing</h2>')
+            .addTo(map)
+        L.marker([-7.3984451151317225, 111.76279361813657])
+            .bindPopup('<center><img src="https://lh5.googleusercontent.com/p/AF1QipN82tgKhktvLoVU8BWypOKafuVxrRKJP-gF4lqC=w408-h272-k-no" width="250px" height="150px title="Negeri Atas Angin" alt="Negeri Atas Angin"></center><h2>Negeri Atas Angin</h2>')
+            .addTo(map)
+        L.marker([-7.259121450166758, 111.79061173558188])
+            .bindPopup('<center><img src="https://lh5.googleusercontent.com/p/AF1QipOxRcEbWk4JmC9oNCv4BrhkRpukQaSO8BLspzlH=w408-h306-k-no" width="250px" height="150px title="Khayangan Api" alt="Khayangan Api"></center><h2>Khayangan Api</h2>')
+            .addTo(map)
+        L.marker([-7.247847465307407, 111.84115984897701])
+            .bindPopup('<center><img src="https://lh5.googleusercontent.com/p/AF1QipOwyvITOj8yStBKZ49PayvqKJrr1wfDCntPCBqK=w408-h306-k-no" width="250px" height="150px title="Wana Wisata Dander" alt="Wana Wisata Dander"></center><h2>Wana Wisata Dander</h2>')
+            .addTo(map)
+        L.marker([-7.425252122223436, 111.7791035177492])
+            .bindPopup('<center><img src="https://lh5.googleusercontent.com/p/AF1QipMiFGtHzCzYEFei8FPR6juHskRa4TfktPnGG7GU=w426-h240-k-no" width="250px" height="150px title="Air Terjun Kedunggupit" alt="Air Terjun Kedunggupit"></center><h2>Air Terjun Kedunggupit</h2>')
+            .addTo(map)
+        L.marker([-7.169210321760452, 111.89566032953347])
+            .bindPopup('<center><img src="https://lh5.googleusercontent.com/p/AF1QipMgVgF14O3Z6HS1IWch-rmVRT0o9WdBydaAcw41=w408-h544-k-no" width="250px" height="200px title="GoFun Bojonegoro" alt="GoFun Bojonegoro"></center><h2>GoFun Bojonegoro</h2>')
+            .addTo(map)
+        L.marker([-7.1565827010923995, 111.87196082860335])
+            .bindPopup('<center><img src ="https://lh5.googleusercontent.com/p/AF1QipN2HPn3bMmRGsK5QsCrtnKYu0-jeIdIcr7QB4Zr=w426-h240-k-no" width="250px" height="150px title="GoFun Bojonegoro" alt="Taman Rajekwesi"></center><h2>Taman Rajekwesi</h2>')
+            .addTo(map);
+        L.geoJSON(bojonegorogeojson, {
+            style: function(feature) {
+			switch (feature.properties.KABKOT) {
+				case 'BOJONEGORO': return {color: "blue"};
+            }
+        },
+            onEachFeature: function (feature, layer) {
+                layer.bindPopup(
+                'Sejarah Kabupaten Bojonegoro adalah Masa kehidupan sejarah Indonesia Kuno ditandai oleh pengaruh kuat kebudayaan Hindu yang datang dari India sejak Abad I. Hingga abad ke-16, Bojonegoro termasuk wilayah kekuasaan Majapahit. Seiring dengan berdirinya Kesultanan Demak pada abad ke-16, Bojonegoro menjadi wilayah Kerajaan Demak. Dengan berkembangnya budaya baru yaitu Islam, pengaruh budaya Hindu terdesak dan terjadilah pergeseran nilai dan tata masyarakat dari nilai lama Hindu ke nilai baru Islam dengan disertai perang dalam upaya merebut kekuasaan Majapahit (wilwatikta). Peralihan kekuasaan yang disertai pergolakan membawa Bojonegoro masuk dalam wilayah Kerajaan Pajang (1586), dan kemudian Mataram (1587). Pada tanggal 20 Oktober 1677, status Jipang yang sebelumnya adalah kadipaten diubah menjadi kabupaten dengan Wedana Bupati Mancanegara Wetan, Mas Tumapel yang juga merangkap sebagai Bupati I yang berkedudukan di Jipang. Tanggal ini hingga sekarang diperingati sebagai hari jadi Kabupaten Bojonegoro. Tahun 1725, ketika Pakubuwono II (Kasunanan Surakarta) naik tahta, pusat pemerintahan Kabupaten Jipang dipindahkan dari Jipang ke Rajekwesi, sekitar 10 km sebelah selatan kota Bojonegoro sekarang. '
+                );
+                }
+            }).addTo(map);
+    </script>
+
+
+</body>
+</html>

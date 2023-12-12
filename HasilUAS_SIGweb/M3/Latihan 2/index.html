@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Latihan2_Proteksi Password</title>
+    </head>
+<body>
+    <h1>Validasi Input Data Diri</h1>
+    <p>Tuliskan Nama, Password, dan Alamat Email anda:</p>
+    <div class="login">
+        <div id="error" class="alert alert-danger" role="alert"></div>
+        <form action="#" method="get" id="form">
+            <label>Nama:</label>
+            <input type="text" name="nama" placeholder="Masukkan Nama Anda"/><br>
+            <label>Password:</label>
+            <input type="password" name="password" placeholder="Masukkan Password Anda"/><br>
+            <label>E-mail:</label>
+            <input type="text" name="email" placeholder="Masukkan Email Anda"/><br>
+            <input onclick="login()" type="button" value="Klik" class="tombol">
+        </form>
+    </div>
+    <h5 style="color:orange;" align="left">Dibuat Oleh: <br> Shinta Puspa Megawanti <br> 20/456748/TK/50572</h5>
+   <script>
+ function login(){
+    var nama = document.forms["form"]["nama"].value;
+    var password = document.forms["form"]["password"].value;
+    var email = document.forms["form"]["email"].value;
+        if (nama == "Shinta Puspa Megawanti") {
+            alert("Masukkan nama anda!");
+            return false;
+        }
+        if (email == "shintapuspam43@mail.ugm.ac.id") {
+            alert("Masukkan email anda!");
+            return false;
+        }
+         if (password == "Shintapm47") {
+            alert("Anda berhasil login!");
+            return false;
+         }
+         else{
+            alert("Password Salah!");
+            return false;
+         }
+
+ }
+   </script> 
+   </div>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Bangunan Ikonik di Kota Palembang</title>
+ <!--Menggunkan CDN yang menyimpan kode Leaflet-->
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.1/dist/leaflet.css"
+   integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+   crossorigin=""/>
+<!--Elemen JS-->
+<script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
+   integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s="
+   crossorigin="">
+</script>
+<!-- Membuat judul -->
+<div class="container-fluid p-3">
+    <h2 class="mb-3">                 
+        <center><span class="text-primary">Lokasi Bangunan Ikonik di Kota Palembang</span></center>
+</div>
+<!-- Memanggil bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+    <script src="./bundle.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="./Leaflet.GraphicScale.min.css">
+
+    <script src="./Leaflet.GraphicScale.min.js"></script>
+    <style>
+	#map {
+		height: calc(100vh - 60px);
+	}
+	</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+     
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <button 
+	    class="btn btn-outline-success my-2 my-sm-0" 
+		onclick="cari()"
+		>
+		   Lokasi saya
+	  </button>
+    </form>
+  </div>
+</nav>
+ <style>
+    html, body, section
+    {
+        position: relative;
+        height: 100%;
+        background-color: #2e2d2d;
+    }
+
+    html
+    {
+        scroll-behavior: smooth;
+    }
+
+    #map {
+    width: 1500px;
+    height:1500px;
+    } 
+ </style>
+
+</head>
+<body>
+    <center>
+        <div id="map"></div>
+    </center>
+
+<!--Menambahkan Basemap-->
+    <script>
+        var map = L.map('map',{
+        center: [-2.9879324289146134, 104.76104044847176],
+        zoom: 20
+        });
+
+        var esri =
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{
+        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA,USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS UserCommunity'
+        }).addTo(map);
+
+        var carto = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}{r}.png', {
+            attribution:'&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>&copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
+        });
+
+        var OSM = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+ 
+<!--Menambahkan lokasi titik-->
+        L.marker([-2.991592, 104.763553])
+            .bindPopup('<center><img src="https://lh5.googleusercontent.com/p/AF1QipPr9NqOo-1QJegD6ZlU7u7OyhOomebCjxmUrSBS=w408-h306-k-no" width="250px" height="200px" title="Jembatan Ampera" alt="embatan Ampera"></center><center><h5>Jembatan Ampera</h5></center><center><p>Jembatan yang terbentang di atas Sungai Musi Kota Palembang ini memiliki panjang 1.177 meter, lebar 22 meter dan tinggi 63 meter dan jarak antara menara 75 meter. Jembatan yang berada di tengah-tengah Kota Palembang ini menghubungkan dua kawasan, yakni seberang ilir, dan seberang ulu. Kawasan ini dipisahkan oleh Sungai Musi.</p></center>')
+            .addTo(map)
+        L.marker([-2.9892906110395234, 104.7637937557531])
+            .bindPopup('<center><img src="https://lh5.googleusercontent.com/p/AF1QipPvGq6V3k1IHF-Rd9YzpLoV8OBjzuiBVR9Tzha2=w426-h240-k-no" width="250px" height="200px" title="Pasar Ilir 16" alt="Pasar Ilir 16"></center><center><h5>Pasar Ilir 16</h5></center><center><p>Pasar 16 mempunyai nilai sejarah yang belum banyak diketahui masyarakat Sumatera Selatan khususnya Palembang. Pasar 16 sering dikenal juga dengan sebutan pasar tengkuruk karena gedung-gedung atau rumah toko (ruko) tampak bersejajar menghadap tepian Sungai Tengkuruk. Jika dilihat dari arah pertigaan Jl. Masjid Lama (saat ini), di sepanjang tepian sungai sebelah kiri, berjajar pertokoan. Sedangkan di bagian kanan, tampak rumahrumah panggung. Di bagian lain sungai itu, tampaklah tangga raja (hingga kini masih dinamakan demikian meskipun sudah tak ada lagi sungai.</p></center>')
+
+            .addTo(map)
+        L.marker([-2.9874532246439607, 104.7602225795624])
+            .bindPopup('<center><img src="https://lh5.googleusercontent.com/p/AF1QipNQpiXDNLQqzCm67nw9wI8kYeyfPd4SIY0S0ukW=w426-h240-k-no" width="250px" height="200px" title="Sultan Mahmud Badaruddin Jayo Wikramo Great Mosque" alt="Sultan Mahmud Badaruddin Jayo Wikramo Great Mosque"></center><center><h5>Sultan Mahmud Badaruddin Jayo Wikramo Great Mosque</h5></center><p><center>Masjid Agung Sultan Mahmud Badaruddin I atau yang lebih dikenal sebagai Masjid Agung Palembang memiliki nilai historis yang tinggi. Mengutip Sistem Informasi Masjid Kementerian Agama, masjid ini menempati kompleks seluas 15.400 meter persegi di di kawasan 19 Ilir, dekat perkampungan penduduk asli Palembang dan keturunan Arab. Dengan luas demikian, masjid ini merupakan yang terbesar di ibu kota Provinsi Sumatra Selatan. Status masjid ini sudah merupakan masjid nasional dan bangunan cagar budaya yang dilindungi undang-undang. Seperti tampak dari namanya, Masjid Agung Palembang merupakan warisan Kesultanan Palembang Darussalam. Bangunan ini pertama kali didirikan pada periode 1738-1748 oleh Sultan Mahmud Badaruddin I. Saat pertama kali dibangun, luas masjid tersebut mencakup 1.080 meter persegi. Daya tampungnya mencapai 1.200 orang jamaah.</p></center>')
+            .addTo(map)
+        L.marker([-2.9896441237365377, 104.76060535454502])
+            .bindPopup('<center><img src="https://lh5.googleusercontent.com/p/AF1QipN0zZOkLhfPCwFh3wvV7_c3dGIv0M6HfQp9G0Tl=w408-h544-k-no" width="250px" height="200px" title="Monumen Ampera" alt="Monumen Ampera"></center><center><h5>Monumen Ampera</h5></center><center><p>Monumen Perjuangan Rakyat, atau yang lebih dikenal sebagai Monpera, adalah sebuah monumen yang terletak di Kota Palembang, Sumatra Selatan, Indonesia. Monumen ini didirikan untuk memperingati perjuangan rakyat Palembang dalam merebut kemerdekaan dari penjajahan Belanda. Monumen ini memiliki arsitektur yang indah dengan menara setinggi 43 meter yang melambangkan kemenangan. Monpera tidak hanya menjadi tempat wisata sejarah, tetapi juga sebagai tempat peringatan dan kenangan bagi generasi masa kini. Monumen ini mengingatkan kita akan perjuangan berdarah yang dilakukan oleh para pahlawan kita demi kemerdekaan dan menginspirasi masyarakat untuk menjaga dan menghormati warisan perjuangan yang telah diberikan kepada kita.</p></center>')
+            .addTo(map)
+
+        L.geoJSON(bojonegorogeojson, {
+            style: function(feature) {
+			switch (feature.properties.KABKOT) {
+				case 'BOJONEGORO': return {color: "blue"};
+            }
+        },
+
+            }).addTo(map);
+    </script>
+
+
+</body>
+</html>
